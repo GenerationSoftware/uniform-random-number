@@ -34,7 +34,7 @@ library UniformRandomNumber {
     if(_upperBound == 0) {
         revert UpperBoundGtZero();
     }
-    uint256 min = - (_upperBound) % _upperBound;
+    uint256 min = (type(uint256).max-_upperBound+1) % _upperBound;
     uint256 random = _entropy;
     while (true) {
       if (random >= min) {
